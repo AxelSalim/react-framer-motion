@@ -5,9 +5,13 @@ import { delay, motion } from "framer-motion";
 
 const buttonVariants = {
   hover: {
-    scale: [1, 1, 1, 1.1, 1, 1, 1, 1.1, 1],
-    textShadow: "0px 0px 200px rgba(0, 0, 0, 1)",
-    boxShadow: "0px 0px 20px rgba(0, 0, 0, 1)",
+    scale: 1.1,
+    textShadow: "0px 0px 200px rgba(0, 0, 0, 0.7)",
+    boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.7)",
+    transition: { 
+      duration: 0.5,
+      repeat: Infinity,
+    }
   }
 }
 
@@ -17,7 +21,7 @@ const Home = () => {
     <motion.div className="home container"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 1.5, duration: 2 }}
+      transition={{ delay: 1.5, duration: 1.5 }}
     >
       <h2>Welcome to Pizza Joint</h2>
       
