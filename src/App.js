@@ -32,7 +32,7 @@ function App() {
     <>
       <Header />
       <Modal showModal={showModal} setShow={setShowModal} />
-      <AnimatePresence>
+      <AnimatePresence mode="wait" onExitComplete={() => setShowModal(false)}>
         <Routes location={location} key={location.key}>
           <Route path="/base" element={<Base addBase={addBase} pizza={pizza} />} />
           <Route path="/toppings" element={<Toppings addTopping={addTopping} pizza={pizza} />} />
