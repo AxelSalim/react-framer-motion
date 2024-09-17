@@ -18,6 +18,10 @@ const containerVariants = {
       when: "beforeChildren",
       staggerChildren: 0.4
     }
+  },
+  exit: {
+    x: '-100vw',
+    transition : { ease: "easeInOut" }
   }
 }
 
@@ -33,17 +37,18 @@ const childVariants = {
 
 const Order = ({ pizza }) => {
 
-  const [showTitle, setShowTitle] = useState(true);
+  // const [showTitle, setShowTitle] = useState(true);
   
-  setTimeout(() => {
-    setShowTitle(false);
-  }, 4000);
+  // setTimeout(() => {
+  //   setShowTitle(false);
+  // }, 4000);
 
   return (
     <motion.div className="container order"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
+      exit="exit"
     >
 
       <h2 className="text-3xl font-bold">Thank you for your order :)</h2>

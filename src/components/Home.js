@@ -33,6 +33,7 @@ const Home = () => {
 
   return (
     <motion.div className="home container"
+    variants={containerVariants}
       initial="hidden"
       animate="visible"
       exit="exit"
