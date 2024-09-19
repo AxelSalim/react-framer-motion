@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { delay, motion } from "framer-motion";
+import { delay, motion, useCycle } from "framer-motion";
 
 
 const loaderVariants = {
@@ -9,14 +9,26 @@ const loaderVariants = {
     y: [0, -40],
     transition: {
       x: {
-        repeat: Infinity, 
-        duration: 0.5,  
+        repeat: Infinity,
+        duration: 0.5,
         ease: 'easeOut',
         repeatType: 'reverse'
       },
       y: {
-        repeat: Infinity,  
-        duration: 0.25, 
+        repeat: Infinity,
+        duration: 0.25,
+        ease: 'easeOut',
+        repeatType: 'reverse'
+      }
+    }
+  }, 
+  animationTwo: {
+    y: [0, -50], 
+    x: 0,
+    transition: {
+      y: {
+        repeat: Infinity,
+        duration: 0.25,
         ease: 'easeOut',
         repeatType: 'reverse'
       }
@@ -24,14 +36,17 @@ const loaderVariants = {
   }
 }
 const Loader = () => {
+
+  const [animation, cycleAnimation] = useCycle("animationOne", "animationTwo")
   return(
     <>
       <motion.div className="loader"
         variants={loaderVariants}
-        animate="animationOne"
+        animate={animation}
       >
 
       </motion.div>
+      <div onClick={() => cycleAnimation()} className="hover:cursor-pointer">Cycle Loader</div>
     </>
   )
 }
