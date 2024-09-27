@@ -46,7 +46,7 @@ const Loader = () => {
       >
 
       </motion.div>
-      <div onClick={() => cycleAnimation()} className="hover:cursor-pointer">Cycle Loader</div>
+      <div onClick={() => cycleAnimation()} className="hover:cursor-pointer">Cycle(s) Loader</div>
     </>
   )
 }
